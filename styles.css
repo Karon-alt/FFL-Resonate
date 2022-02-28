@@ -131,7 +131,7 @@ a:hover {
 /*Join us Section ----------------------------------------------------------*/
 
 div.background {
-    background-image: linear-gradient( rgba(0, 0, 0, 10), rgba(87, 86, 86, 0.5)), url(img/team.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 10), rgba(87, 86, 86, 0.5)), url(team.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 864px;
