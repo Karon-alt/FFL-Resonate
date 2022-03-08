@@ -1,4 +1,4 @@
-//made by vipul mirajkar thevipulm.appspot.com
+//bounce animation for interview button------------------------------------------------------
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
@@ -56,3 +56,21 @@ window.onload = function() {
     document.body.appendChild(css);
 };
 $(".wow").addClass("fadeInUp");
+//Scroll animation--------------------------------------------------------------
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        } else {
+            reveals[i].classList.remove("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);

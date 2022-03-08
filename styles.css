@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
 /*
-$ci-1: #2F2E2E; // dark grey 
-$ci-2: #FFFFFF; // off white
-$ci-3: #BCB1A7; // light grey
-$ci-4: #C36428; // orange
-$ci-5: #64584D; // med grey
-$ci-6: #4e5c31; // green */
+Colors
+
+ #2F2E2E; // dark grey 
+ #FFFFFF; // off white
+ #BCB1A7; // light grey
+ #C36428; // orange
+ #64584D; // med grey
+ #4e5c31; // green */
+
+
+/* general styles -------------------------------------------------*/
 
 body {
     text-rendering: optimizeLegibility;
@@ -33,7 +38,7 @@ h6 {
 }
 
 h1 {
-    font-size: 34px;
+    font-size: 4em;
     color: #2F2E2E;
 }
 
@@ -50,17 +55,19 @@ h3 {
 }
 
 h4 {
-    font-size: 50px;
+    font-size: 80px;
     color: #C36428;
     text-decoration: underline;
+    padding-bottom: 3%;
 }
 
 h5 {
     font-size: 30px;
+    color: #64584D;
 }
 
 h6 {
-    font-size: 22px;
+    font-size: 30px;
 }
 
 p {
@@ -81,6 +88,10 @@ a {
 }
 
 a:focus,
+b:hover {
+    color: #BCB1A7;
+}
+
 a:hover {
     text-decoration: none;
     color: #C36428;
@@ -89,27 +100,98 @@ a:hover {
 .header {
     background: linear-gradient( rgba(195, 100, 35, 0.8), rgb(195, 100, 40), rgb(195, 100, 40), rgb(195, 100, 40), rgba(195, 100, 35, 0.8));
     text-align: center;
-    padding: 1%;
+    padding: 3%;
+}
+
+nav ul {
+    list-style: none;
+    line-height: 3em;
 }
 
 
-/*background: linear-gradient( #C36428, #C36428, #C36428, #C36428, #C36448, #C36458);*/
+/* Services/What we do scroll animation */
+
+@media (max-width: 900px) {
+    section h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    section .text-container {
+        flex-direction: column;
+    }
+}
+
+.reveal {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal.active {
+    opacity: 1;
+}
+
+.active.fade-bottom {
+    animation: fade-bottom 1s ease-in;
+}
+
+.active.fade-left {
+    animation: fade-left 1s ease-in;
+}
+
+.active.fade-right {
+    animation: fade-right 1s ease-in;
+}
+
+@keyframes fade-bottom {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/*header -----------------------------------------------------------------*/
 
 .page-header {
-    background-image: linear-gradient( rgba(195, 100, 40, 0.2), rgba(195, 100, 30, 0.5)), url(img/covered.png);
-    position: relative;
-    background-size: cover;
+    background-color: #2F2E2E;
+    color: #C36428;
 }
 
 .page-caption {
-    padding-top: 170px;
-    padding-bottom: 174px;
+    padding-top: 40px;
+    padding-bottom: 44px;
 }
 
 .page-title {
     font-size: 46px;
     line-height: 1;
-    color: #fff;
+    color: #C36428;
     font-weight: 600;
     text-align: center;
 }
@@ -128,10 +210,10 @@ a:hover {
 }
 
 
-/*Join us Section ----------------------------------------------------------*/
+/*Join Out Team Section ----------------------------------------------------------*/
 
 div.background {
-    background-image: linear-gradient( rgba(0, 0, 0, 10), rgba(87, 86, 86, 0.5)), url(team.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 20), rgba(87, 86, 86, 0.8)), url(img/team.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 864px;
@@ -149,7 +231,80 @@ div.background {
     margin-bottom: 6%;
 }
 
-.animated {}
+.fieldset-caption {
+    color: #C36428;
+    font-size: 2em;
+}
+
+.typewrite {
+    font-size: 2em;
+    color: rgb(195, 100, 40)
+}
+
+.margin {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+/* bouncing animation on interview button */
+
+@keyframes bouncing {
+    from,
+    20%,
+    53%,
+    80%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+.bouncing {
+    animation-duration: 2s;
+    animation-name: bouncing;
+    animation-iteration-count: 2;
+    animation-delay: 7.5s;
+}
+
+
+/* interview button -------------------------------------*/
+
+button.lg {
+    font-size: calc(28px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+    color: #C36428 !important;
+    background-color: #2F2E2E !important;
+    padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+}
+
+b {
+    color: #C36428;
+}
+
+button.sm {
+    font-size: calc(18px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+    background-color: #2F2E2E !important;
+    color: #C36428 !important;
+    padding-left: calc(10px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-right: calc(10px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-top: calc(1px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-bottom: calc(1px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+}
 
 
 /*Footer -------------------------------------------------------------------*/
@@ -176,17 +331,7 @@ h3 {
     color: #757575 !important
 }
 
-button {
-    font-size: calc(18px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
-    background-color: #2F2E2E !important;
-    color: #C36428 !important;
-    padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
-    padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
-    padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
-    padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
-}
-
 div.sub-footer {
     color: #C36428;
-    background-color: #BCB1A7;
+    color: #BCB1A7;
 }
